@@ -1,4 +1,56 @@
 .displayTodos{
     flex: 1;
-    border: 2px solid red
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 700px;
 }
+
+.todo{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:repeat(2, 1fr);
+    gap:1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid #f9f9f9;
+    grid-template-areas: 'title dueDate priority update'
+                        'description description complete delete';
+}
+
+.title{
+    grid-area: title;
+}
+
+.description{
+    grid-area: description;
+}
+
+.priority{
+    grid-area: priority;
+}
+
+.dueDate{
+    grid-area: dueDate;
+}
+
+.complete{
+    grid-area: complete;
+}
+
+.update{
+    grid-area: update;
+    background-color: #535bf2;
+    max-width: 70%;
+
+}
+
+.delete{
+    grid-area: delete;
+    background-color: darkred;
+    max-width: 70%;
+}
+

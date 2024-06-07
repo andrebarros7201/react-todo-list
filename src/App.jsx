@@ -10,6 +10,7 @@ function App() {
     description: "",
     priority: "",
     dueDate: "",
+    complete: false,
   };
 
   const [todoList, setTodoList] = useState(() => {
@@ -26,6 +27,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = uuidv4();
+    todoData.complete = false;
     setTodoList((prevState) => [...prevState, { id: id, todoData: todoData }]);
     setTodoData(defaultTodo);
   };

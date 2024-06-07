@@ -5,11 +5,15 @@ export default function DisplayToDo({ todoList }) {
     <div className="displayTodos">
       {todoList.map((todo) => (
         <div className="todo" key={todo.id}>
-          <h2>{todo.todoData.title}</h2>
-          <p>{todo.todoData.description}</p>
-          <p>{todo.todoData.priority}</p>
-          <p>{todo.todoData.dueDate}</p>
-          <button>Delete</button>
+          <h2 className="title">{todo.todoData.title}</h2>
+          <p className="description">{todo.todoData.description}</p>
+          <p className="priority">{todo.todoData.priority}</p>
+          <p className="dueDate">{todo.todoData.dueDate}</p>
+          <p className="complete">
+            Complete: {todo.todoData.complete ? "✔️" : "❌"}
+          </p>
+          <button className="update">Update</button>
+          <button className="delete">Delete</button>
         </div>
       ))}
     </div>
