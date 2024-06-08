@@ -13,6 +13,7 @@ function App() {
     complete: false,
   };
 
+  const [isEditiing, setEditing] = useState(false);
   const [todoList, setTodoList] = useState(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todoList"));
     return savedTodos ? JSON.parse(savedTodos) : [];
@@ -36,6 +37,14 @@ function App() {
     setTodoData((prevState) => ({ ...prevState, [field]: value }));
   };
 
+  const handleEditing = () => {
+    setEditing(true);
+  };
+
+  const deleteTodo = (id) => {
+    setTodoList((prevList) => prevList.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="app">
       <CreateToDo
@@ -43,7 +52,12 @@ function App() {
         handleSubmit={handleSubmit}
         updateField={updateField}
       />
-      <DisplayToDo todoList={todoList} />
+      <DisplayToDo
+        todoList={todoList}
+        isEditing={isEditiing}
+        handleEditing={handleEditing}
+        deleteTodo={deleteTodo}
+      />
     </div>
   );
 }

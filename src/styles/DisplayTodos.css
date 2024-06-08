@@ -1,32 +1,35 @@
 .displayTodos{
-    flex: 1;
+    flex: 2;
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    min-width: 700px;
 }
 
-.todo{
+.todo {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows:repeat(2, 1fr);
-    gap:1rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows:repeat(3, 1fr);
     padding: 0.5rem;
     border-radius: 1rem;
-    justify-content: center;
-    align-content: center;
+    align-items: center;
+    justify-items: center;
     border: 1px solid #f9f9f9;
-    grid-template-areas: 'title dueDate priority update'
-                        'description description complete delete';
+    grid-template-areas: 'title dueDate priority complete update'
+                        'description description description description toggleStatus'
+                       'description description description description delete';
 }
-
 .title{
     grid-area: title;
 }
 
 .description{
     grid-area: description;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .priority{
@@ -45,6 +48,7 @@
     grid-area: update;
     background-color: #535bf2;
     max-width: 70%;
+    height: fit-content;
 
 }
 
@@ -52,5 +56,14 @@
     grid-area: delete;
     background-color: darkred;
     max-width: 70%;
+    height: fit-content;
+
+}
+
+.toggleStatus{
+    grid-area: toggleStatus;
+    background-color: #213547;
+    max-width: 70%;
+    height: fit-content;
 }
 
